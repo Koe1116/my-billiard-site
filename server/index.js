@@ -8,20 +8,18 @@ import ordersRoutes from "./routes/orders.js";
 const app = express();
 const PORT = 5000;
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/menu", menuRoutes);
 app.use("/api/orders", ordersRoutes);
 
-// Connect MongoDB
 mongoose.connect("mongodb://127.0.0.1:27017/myrestaurant", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-}).then(() => console.log("MongoDB connected"))
-  .catch(err => console.log(err));
+})
+.then(() => console.log("MongoDB connected"))
+.catch(err => console.log(err));
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -10,7 +10,7 @@ export default function Menu() {
   }, []);
 
   return (
-    <div style={{textAlign:"center"}}>
+    <div>
       <h2>Menu</h2>
       {menu.map(item => (
         <div key={item._id}>{item.name} - {item.price}₮</div>
